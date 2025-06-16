@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { BACKEND } from '@/config';
 
 export default function Home() {
   const [original, setOriginal] = useState(null);
@@ -23,7 +24,7 @@ export default function Home() {
       formData.append('quality', quality);
 
       try {
-        const res = await fetch('http://localhost:5000/api/compress', {
+        const res = await fetch(`${BACKEND}/api/compress`, {
           method: 'POST',
           body: formData,
         });
